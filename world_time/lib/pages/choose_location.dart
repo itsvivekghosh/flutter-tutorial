@@ -11,9 +11,9 @@ class _ChooseLocationState extends State<ChooseLocation> {
     print("Build is called");
 
     return Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Colors.white,
         appBar: AppBar(
-          backgroundColor: Colors.blue[900],
+          backgroundColor: Colors.grey[900],
           title: Text("Choose Location"),
           centerTitle: true,
           elevation: 0.2,
