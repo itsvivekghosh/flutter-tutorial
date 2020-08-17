@@ -10,7 +10,9 @@ void main() {
 
 class QuoteList extends StatefulWidget {
   @override
-  _QuoteListState createState() => _QuoteListState();
+  _QuoteListState createState() {
+    return _QuoteListState(); // Creating Statefull QuotelistState Component
+  }
 }
 
 class _QuoteListState extends State<QuoteList> {

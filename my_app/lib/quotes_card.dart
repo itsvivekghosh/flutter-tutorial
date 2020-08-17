@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:my_app/quotes.dart';
 
 class QuoteCard extends StatelessWidget {
   QuoteCard({this.quote, this.delete});
 
-  final dynamic quote;
+  final Quote quote;
   final Function delete;
 
   @override
