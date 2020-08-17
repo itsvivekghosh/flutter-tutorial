@@ -6,7 +6,14 @@ void main() {
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int ninjaLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +23,16 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.grey[850],
         elevation: 0.2,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            ninjaLevel += 1;
+          });
+          print("Hello Ninja Level: $ninjaLevel");
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 20, 40, 0),
@@ -47,14 +64,14 @@ class Home extends StatelessWidget {
               height: 30.0,
             ),
             Text(
-              "Current Ninja Level",
+              "NINJA LEVEL",
               style: TextStyle(color: Colors.grey, letterSpacing: 2.0),
             ),
             SizedBox(
               height: 10.0,
             ),
             Text(
-              "8",
+              "$ninjaLevel",
               style: TextStyle(
                   fontSize: 28.0,
                   fontWeight: FontWeight.bold,
