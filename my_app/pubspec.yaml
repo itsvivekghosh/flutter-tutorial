@@ -76,5 +76,6 @@ flutter:
 
   assets:
     - assets/image1.jpg
+    - assets/default.jpg
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
