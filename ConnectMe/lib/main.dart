@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ConnectMe/views/signin.dart';
+import 'package:ConnectMe/views/signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        // primaryColor: Color(0xff145C9E),
+        scaffoldBackgroundColor: Color(0xff1F1F1F),
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: SignIn(),
