@@ -34,7 +34,7 @@ TextStyle simpleTextStyle(Color color, double fontSize) {
 }
 
 Container signInMainButtons(String text, dynamic context, String cond) {
-  if (cond == 'sign_in') {
+  if (cond == 'first') {
     return Container(
       alignment: Alignment.center,
       width: MediaQuery.of(context).size.width,

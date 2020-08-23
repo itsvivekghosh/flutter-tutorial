@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "217469541497",
+    "firebase_url": "https://connectme-de14b.firebaseio.com",
+    "project_id": "connectme-de14b",
+    "storage_bucket": "connectme-de14b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217469541497:android:dc52f342ff590a343488a8",
+        "android_client_info": {
+          "package_name": "com.example.ConnectMe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217469541497-o42fmjdmis5m8h6h288nqhj0orne7hs2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3ddy3JS1FxFkr9Wmt1c8l1nMZ2WETxhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217469541497-o42fmjdmis5m8h6h288nqhj0orne7hs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
