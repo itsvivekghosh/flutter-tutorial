@@ -43,7 +43,6 @@ class _MyAppState extends State<MyApp> {
         primaryColor: Colors.green[900],
         scaffoldBackgroundColor: Color(0xff1F1F1F),
         accentColor: Colors.green[900],
-        fontFamily: "OverpassRegular",
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: userIsLoggedIn != null ?  userIsLoggedIn ? ChatRoom() : Authentication()
