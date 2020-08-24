@@ -1,7 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ConnectMe/widgets/widget.dart';
 
 class SignIn extends StatefulWidget {
+
+  final Function toggle;
+  SignIn(this.toggle);
+
   @override
   _SignInState createState() => _SignInState();
 }
@@ -40,10 +45,14 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 SizedBox(height: 16),
-                signInMainButtons(
-                  "Sign In",
-                  context,
-                  'sign_in',
+                GestureDetector(
+                  onTap: () {
+                  },
+                  child: signInMainButtons(
+                    "Sign In",
+                    context,
+                    'first',
+                  ),
                 ),
                 SizedBox(height: 8),
                 signInMainButtons(
@@ -59,12 +68,20 @@ class _SignInState extends State<SignIn> {
                       "Dont have any account? ",
                       style: simpleTextStyle(Colors.white, 16),
                     ),
-                    Text(
-                      "Register Now",
-                      style: TextStyle(
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
-                        fontSize: 16,
+                    GestureDetector(
+                      onTap: () {
+                        widget.toggle();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 10),
+                        child: Text(
+                          "Register Now",
+                          style: TextStyle(
+                            color: Colors.white,
+                            decoration: TextDecoration.underline,
+                            fontSize: 16,
+                          ),
+                        ),
                       ),
                     ),
                   ],

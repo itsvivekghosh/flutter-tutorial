@@ -13,7 +13,7 @@ InputDecoration textInputDecoration(String hintTextURL) {
     hintText: hintTextURL,
     focusedBorder: UnderlineInputBorder(
       borderSide: BorderSide(
-        color: Colors.white,
+        color: Colors.green[400],
       ),
     ),
     enabledBorder: UnderlineInputBorder(

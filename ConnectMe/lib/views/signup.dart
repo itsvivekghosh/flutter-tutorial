@@ -1,14 +1,20 @@
 import 'dart:ui';
 import 'package:ConnectMe/services/auth.dart';
+import 'package:ConnectMe/services/database.dart';
 import 'package:ConnectMe/widgets/widget.dart';
 import 'package:flutter/material.dart';
+import 'package:ConnectMe/views/chatRoomScreen.dart';
 
 class SignUp extends StatefulWidget {
+  final Function toggle;
+  SignUp(this.toggle);
+
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
+
   bool isLoading = false;
   final formKey = GlobalKey<FormState>();
   TextEditingController emailEditingController = new TextEditingController();
@@ -16,19 +22,35 @@ class _SignUpState extends State<SignUp> {
   TextEditingController usernameEditingController = new TextEditingController();
 
   AuthService authService = new AuthService();
+  DatabaseMethods databaseMethods = new DatabaseMethods();
 
   signUp() async {
     if (formKey.currentState.validate()) {
+
+      Map<String, String> userMap = {
+        'name': usernameEditingController.text,
+        'email': emailEditingController.text,
+      };
+
       setState(() {
         isLoading = true;
       });
 
       await authService
-          .signInWithEmailAndPassword(
+          .signUpWithEmailAndPassword(
               emailEditingController.text, passwordEditingController.text)
-          .then((value) {
-        print(value);
-      });
+          .then(
+        (value) {
+
+          databaseMethods.uploadUserInfo(userMap);
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatRoom(),
+            ),
+          );
+        },
+      );
     }
   }
 
@@ -115,7 +137,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       SizedBox(height: 8),
                       signInMainButtons(
-                        "Sign In With Google",
+                        "Sign Un With Google",
                         context,
                         "second",
                       ),
@@ -124,15 +146,23 @@ class _SignUpState extends State<SignUp> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Dont have any account? ",
+                            "Already have an account? ",
                             style: simpleTextStyle(Colors.white, 16),
                           ),
-                          Text(
-                            "Register Now",
-                            style: TextStyle(
-                              color: Colors.white,
-                              decoration: TextDecoration.underline,
-                              fontSize: 16,
+                          Container(
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            child: GestureDetector(
+                              onTap: () {
+                                widget.toggle();
+                              },
+                              child: Text(
+                                "Login Now",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ),
                           ),
                         ],
