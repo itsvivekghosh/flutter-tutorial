@@ -1,4 +1,6 @@
 import 'package:ConnectMe/helper/authentication.dart';
+import 'package:ConnectMe/helper/constants.dart';
+import 'package:ConnectMe/helper/helperFunctions.dart';
 import 'package:ConnectMe/services/auth.dart';
 import 'package:ConnectMe/views/search.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,17 @@ class ChatRoom extends StatefulWidget {
 class _ChatRoomState extends State<ChatRoom> {
 
   AuthService authService = new AuthService();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getUserInfo();
+    super.initState();
+  }
+
+  getUserInfo() async {
+    Constants.myName = await HelperFunctions.getUserNameSharedPreference();
+  }
 
   @override
   Widget build(BuildContext context) {

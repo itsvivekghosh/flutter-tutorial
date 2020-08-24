@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:ConnectMe/helper/helperFunctions.dart';
 import 'package:ConnectMe/services/auth.dart';
 import 'package:ConnectMe/services/database.dart';
 import 'package:ConnectMe/widgets/widget.dart';
@@ -32,6 +33,9 @@ class _SignUpState extends State<SignUp> {
         'email': emailEditingController.text,
       };
 
+      HelperFunctions.saveUserEmailSharedPreference(emailEditingController.text);
+      HelperFunctions.saveUserNameSharedPreference(usernameEditingController.text);
+
       setState(() {
         isLoading = true;
       });
@@ -43,6 +47,7 @@ class _SignUpState extends State<SignUp> {
         (value) {
 
           databaseMethods.uploadUserInfo(userMap);
+          HelperFunctions.saveUserLoggedInSharedPreference(true);
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
@@ -100,6 +105,7 @@ class _SignUpState extends State<SignUp> {
                               decoration: textInputDecoration('Email'),
                             ),
                             TextFormField(
+                              obscureText: true,
                               validator: (value) {
                                 return value.length < 6
                                     ? "Enter Password 6+ characters"
